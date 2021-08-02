@@ -49,7 +49,7 @@ const RepositoryItem = ({ item }) => {
 
 const styles = StyleSheet.create({
   item: {
-    display: "inline-flex",
+    display: "flex",
     backgroundColor: "#eee",
     padding: 10,
     marginBottom: 8,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 7,
     backgroundColor: theme.colors.primary,
     borderRadius: 4,
-    display: "inline-block",
+    display: "flex",
     color: "white",
     marginLeft: 60,
     marginBottom: 5,

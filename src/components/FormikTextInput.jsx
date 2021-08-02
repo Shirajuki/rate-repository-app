@@ -15,12 +15,16 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     marginBottom: 0,
-    border: "1px solid #0c0c0c",
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "#0c0c0c",
     borderRadius: 2,
     backgroundColor: "#fff",
   },
   errorBorder: {
-    border: "1px solid " + theme.colors.textRed,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: theme.colors.textRed,
   },
 });
 
