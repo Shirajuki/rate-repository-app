@@ -1,10 +1,12 @@
 import React from "react";
+import { useHistory } from "react-router-native";
 import { StyleSheet, Pressable, View } from "react-native";
 import Text from "./Text";
 import FormikTextInput from "./FormikTextInput";
 import { Formik } from "formik";
 import theme from "../theme";
 import * as yup from "yup";
+import useSignIn from "../hooks/useSignIn";
 
 const validationSchema = yup.object().shape({
   username: yup
@@ -52,12 +54,18 @@ const SignInForm = ({ onSubmit }) => {
 };
 
 const SignIn = () => {
-  const onSubmit = (values) => {
-    //const mass = parseFloat(values.mass);
-    //const height = parseFloat(values.height);
-    //if (!isNaN(mass) && !isNaN(height) && height !== 0)
-    //  console.log(`Your body mass index is: ${getBodyMassIndex(mass, height)}`);
-    console.log(values);
+  const history = useHistory();
+  const [signIn] = useSignIn();
+  const onSubmit = async (values) => {
+    const { username, password } = values;
+
+    try {
+      const { data } = await signIn({ username, password });
+      console.log(data);
+      history.push("/");
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <Formik
